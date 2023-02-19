@@ -1,0 +1,21 @@
+stages:
+  - build
+  - deploy
+
+criar_imagens:
+  stage: build
+  tags:
+    - gcp
+  script:
+    - docker build -t denilsonbonatti/gcp-projeto1:1.0 app/.
+    - docker push denilsonbonatti/gcp-projeto1:1.0
+
+
+executar_imagens:
+  stage: deploy
+  needs:
+    - criar_imagens
+  tags: 
+    - gcp
+  script:
+    - docker run -dti --name webserver -p 80:80 denilsonbonatti/gcp-projeto1:1.0
