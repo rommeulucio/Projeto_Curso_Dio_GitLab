@@ -7,8 +7,8 @@ criar_imagens:
   tags:
     - gcp
   script:
-    - docker build -t denilsonbonatti/gcp-projeto1:1.0 app/.
-    - docker push denilsonbonatti/gcp-projeto1:1.0
+    - docker build -t rommeulucio/gcp-projeto1:1.0 app/.
+    - docker push rommeulucio/gcp-projeto1:1.0
 
 
 executar_imagens:
@@ -18,4 +18,4 @@ executar_imagens:
   tags: 
     - gcp
   script:
-    - docker run -dti --name webserver -p 80:80 denilsonbonatti/gcp-projeto1:1.0
+    - docker run -dti --name webserver -p 80:80 rommeulucio/gcp-projeto1:1.0
